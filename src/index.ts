@@ -1,0 +1,26 @@
+// Hot Reloading - Recompile JS instantly during dev without full page refresh
+// https://parceljs.org/features/development/#hot-reloading
+import { App } from "./App";
+import p5, { createEngine } from "./Renderer/p5";
+const app = new App();
+const init = async () => {
+  await createEngine;
+  loop();
+};
+const loop = () => {
+  app.update();
+  (window as any).raf = window.requestAnimationFrame(loop);
+};
+window.addEventListener("DOMContentLoaded", init);
+// Detect HMR refresh during dev and restart all the things
+// @ts-ignore
+module?.hot?.accept(() => {
+  if (!!p5.setup) {
+    // p5.setup();
+    window.cancelAnimationFrame((window as any).raf);
+    loop();
+    p5.redraw();
+  }
+  // Or, more brutally..
+  // window.location.reload();
+});

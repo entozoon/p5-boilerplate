@@ -1,0 +1,27 @@
+{
+  "name": "p5-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/entozoon/p5-boilerplate.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/entozoon/p5-boilerplate/issues"
+  },
+  "homepage": "https://github.com/entozoon/p5-boilerplate#readme",
+  "dependencies": {
+    "@types/node": "^17.0.21",
+    "@types/p5": "^1.4.1",
+    "p5": "^1.4.1",
+    "parcel-bundler": "^1.12.5",
+    "typescript": "^4.6.2"
+  }
+}
