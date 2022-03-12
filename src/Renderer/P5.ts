@@ -15,7 +15,4 @@ export const createEngine = new Promise((resolve) => {
     };
   }, document.body);
 });
-// How the fuck do I export stuff only after it's created?
-// Shouldn't have to but.. initialised at least ?
-// export let p5 = p5;
 export default p5;

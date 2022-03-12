@@ -4,12 +4,8 @@ import { App } from "./App";
 import p5, { createEngine } from "./Renderer/p5";
 const app = new App();
 const init = async () => {
-  // Fire up the P5 engine then begin our loop
-  // const p5 =
-  const engine = await createEngine;
-  setInterval(() => {
-    console.log(p5);
-  }, 1000);
+  // Fire up the P5 engine then begin our loop in earnest
+  await createEngine;
   loop(0);
 };
 let elapsedPrev = 0;
