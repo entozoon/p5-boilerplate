@@ -22,13 +22,15 @@ window.addEventListener("DOMContentLoaded", init);
 // Detect HMR refresh during dev and restart all the things
 // @ts-ignore
 module?.hot?.accept(() => {
-  if (!!p5.setup) {
-    // window.cancelAnimationFrame((window as any).raf);
-    // init();
-    // // p5.setup();
-    // p5.redraw();
-    // Or, more brutally..
-    // (So much slower but I'm fucking fed up with trying to figure out how to destroy app
+  // if (!!p5.setup) {
+  // window.cancelAnimationFrame((window as any).raf);
+  // init();
+  // // p5.setup();
+  // p5.redraw();
+  // }
+  // Or, more brutally..
+  // (So much slower but I'm fucking fed up with trying to figure out how to destroy app
+  setTimeout(() => {
     window.location.reload();
-  }
+  }, 100);
 });

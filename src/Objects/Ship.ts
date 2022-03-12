@@ -1,14 +1,19 @@
 import p5 from "../Renderer/p5";
 export class Ship {
+  private direction = 1;
   private pos = {
     x: p5.width / 2,
     y: p5.height / 2,
   };
   public update(dt: number) {
-    this.pos.x += 10 * dt;
+    // Trace a sine wave, or something similar
+    this.pos.x += 200 * dt * this.direction;
+    this.pos.y =
+      (Math.sin((this.pos.x / p5.width) * 10) * p5.height + p5.height) / 2;
+    if (this.pos.x >= p5.width || this.pos.x <= 0) this.direction *= -1;
   }
   public render() {
-    p5.fill(p5.color(100, 0, 0));
+    p5.fill(p5.color(100, 0, 200));
     p5.noStroke();
     p5.ellipse(this.pos.x, this.pos.y, 10, 10);
   }
