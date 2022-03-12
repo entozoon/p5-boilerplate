@@ -2,17 +2,18 @@
 // https://parceljs.org/features/development/#hot-reloading
 import { App } from "./App";
 import p5, { createEngine } from "./Renderer/p5";
-const app = new App();
+let app;
 const init = async () => {
   // Fire up the P5 engine then begin our loop in earnest
   await createEngine;
+  app = new App();
   loop(0);
 };
 let elapsedPrev = 0;
 const loop = (elapsed: number) => {
   // Run the update function within app then loop safely
   // console.log(foo);
-  const dt = elapsed - elapsedPrev;
+  const dt = (elapsed - elapsedPrev) / 1000; // ms
   elapsedPrev = elapsed;
   app.update(dt);
   (window as any).raf = window.requestAnimationFrame(loop);
@@ -22,11 +23,12 @@ window.addEventListener("DOMContentLoaded", init);
 // @ts-ignore
 module?.hot?.accept(() => {
   if (!!p5.setup) {
-    // p5.setup();
-    window.cancelAnimationFrame((window as any).raf);
-    loop(0); // this elapsed will be wrong..
-    p5.redraw();
+    // window.cancelAnimationFrame((window as any).raf);
+    // init();
+    // // p5.setup();
+    // p5.redraw();
+    // Or, more brutally..
+    // (So much slower but I'm fucking fed up with trying to figure out how to destroy app
+    window.location.reload();
   }
-  // Or, more brutally..
-  // window.location.reload();
 });
