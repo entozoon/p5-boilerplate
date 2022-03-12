@@ -4,11 +4,17 @@ import { App } from "./App";
 import p5, { createEngine } from "./Renderer/p5";
 const app = new App();
 const init = async () => {
+  // Fire up the P5 engine then begin our loop
   await createEngine;
-  loop();
+  loop(0);
 };
-const loop = () => {
-  app.update();
+let elapsedPrev = 0;
+const loop = (elapsed: number) => {
+  // Run the update function within app then loop safely
+  // console.log(foo);
+  const dt = elapsed - elapsedPrev;
+  elapsedPrev = elapsed;
+  app.update(dt);
   (window as any).raf = window.requestAnimationFrame(loop);
 };
 window.addEventListener("DOMContentLoaded", init);
@@ -18,7 +24,7 @@ module?.hot?.accept(() => {
   if (!!p5.setup) {
     // p5.setup();
     window.cancelAnimationFrame((window as any).raf);
-    loop();
+    loop(0); // this elapsed will be wrong..
     p5.redraw();
   }
   // Or, more brutally..
