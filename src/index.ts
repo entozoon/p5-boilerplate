@@ -12,10 +12,10 @@ const init = async () => {
 let elapsedPrev = 0;
 const loop = (elapsed: number) => {
   // Run the update function within app then loop safely
-  // console.log(foo);
   const dt = (elapsed - elapsedPrev) / 1000; // ms
   elapsedPrev = elapsed;
   app.update(dt);
+  app.render();
   (window as any).raf = window.requestAnimationFrame(loop);
 };
 window.addEventListener("DOMContentLoaded", init);
