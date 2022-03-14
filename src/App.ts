@@ -1,6 +1,7 @@
-import { Ball } from "./Objects/Ball";
 import p5 from "./Engine/Renderer";
+import { Ball } from "./Objects/Ball";
 export class App {
+  // Create a Ball instance
   private ball = new Ball();
   constructor() {}
   private clearScreen() {
@@ -8,10 +9,12 @@ export class App {
     p5.rect(0, 0, p5.width, p5.height);
   }
   public update(dt: number) {
-    this.clearScreen();
+    // Update ball for this frame (changing position and whatnot)
     this.ball.update(dt);
   }
   public render() {
+    // Clear screen and re-render the ball
+    this.clearScreen();
     this.ball.render();
   }
 }

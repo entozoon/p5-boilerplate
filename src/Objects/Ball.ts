@@ -7,6 +7,7 @@ export class Ball {
   };
   public update(dt: number) {
     // Trace a sine wave, or something similar
+    // Using delta time (dt) means it should run at the same speed on any machine (with frameskipping)
     this.pos.x += 200 * dt * this.direction;
     this.pos.y =
       (Math.sin((this.pos.x / p5.width) * 10) * p5.height + p5.height) / 2;
