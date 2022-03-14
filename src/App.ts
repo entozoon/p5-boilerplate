@@ -1,7 +1,7 @@
-import { Ship } from "./Objects/Ship";
-import p5 from "./Renderer/p5";
+import { Ball } from "./Objects/Ball";
+import p5 from "./Engine/Renderer";
 export class App {
-  private ship = new Ship();
+  private ball = new Ball();
   constructor() {}
   private clearScreen() {
     p5.fill(p5.color(0, 0, 0));
@@ -9,9 +9,9 @@ export class App {
   }
   public update(dt: number) {
     this.clearScreen();
-    this.ship.update(dt);
+    this.ball.update(dt);
   }
   public render() {
-    this.ship.render();
+    this.ball.render();
   }
 }

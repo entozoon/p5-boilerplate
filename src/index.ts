@@ -1,7 +1,7 @@
 // Hot Reloading - Recompile JS instantly during dev without full page refresh
 // https://parceljs.org/features/development/#hot-reloading
 import { App } from "./App";
-import p5, { createEngine } from "./Renderer/p5";
+import p5, { createEngine } from "./Engine/Renderer";
 let app;
 const init = async () => {
   // Fire up the P5 engine then begin our loop in earnest

@@ -1,5 +1,5 @@
-import p5 from "../Renderer/p5";
-export class Ship {
+import p5 from "../Engine/Renderer";
+export class Ball {
   private direction = 1;
   private pos = {
     x: p5.width / 2,
