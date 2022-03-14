@@ -2,7 +2,7 @@
 
 A simple-as-possible starting point for P5 canvas projects.
 
-**_[View Demo](https://p5-boilerplate.netlify.app)_**
+## **[View Demo](https://p5-boilerplate.netlify.app)**
 
 ## Ingredients:
 
